@@ -1,0 +1,13 @@
+#navigator-toolbox { border: none !important;}
+
+ #navigator-toolbox::after {
+      border-bottom: 0px !important;
+  }
+  #nav-bar {
+    box-shadow: none !important;
+    border-top: none !important;
+  }
+  
+  #tracking-protection-icon-container {
+  border-image-slice: 0 !important;
+}
