@@ -15,6 +15,10 @@
 
     // If enabled, selections are automatically copied to your clipboard.
     "copyOnSelect": false,
+	
+	// true or false to show tabs
+    "alwaysShowTabs":true,
+    "showTabsInTitlebar":true,
 
     // If enabled, formatted data is also copied to your clipboard
     "copyFormatting": false,
@@ -39,9 +43,9 @@
                 "commandline": "powershell.exe",
                 "hidden": false,
                 "fontFace": "Consolas",
-                "colorScheme": "Dracula",
-                "useAcrylic": true,
-                "acrylicOpacity": 0.2
+                "colorScheme": "Gruvbox Dark",
+                "useAcrylic": false,
+                "acrylicOpacity": 0.5
             },
             {
                 // Make changes here to the cmd.exe profile.
@@ -55,23 +59,41 @@
             },
             // Other Shortcuts
             {
-                // Connects to a remote machine using SSH
-                "guid": "{3b6e258c-bd69-43af-9365-69b153b0ece6}",
-                "name":  "SSH 💻",
-                "tabTitle": "SSH Test",
-                "commandline": "ssh place@holder.com",
-                "icon": "File.Location",
-                "colorScheme": "Dracula",
-                "fontFace": "Cascadia Code",
-                "acrylicOpacity": 0.5,
-                "useAcrylic": true
-            },
-            {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": true,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
-            }
+            },
+			{
+                "guid": "{a23d701e-b29b-4c85-aa8d-6c54505ca3fc}",
+                "hidden": false,
+                "name": "Debian NAS Root",
+                "commandline": "ssh root@192.168.1.10",
+				"fontFace": "Consolas",
+                "colorScheme": "Gruvbox Dark",
+            },
+			{
+                "guid": "{0bd465e9-5210-4136-b671-af1c03f5c2cd}",
+                "hidden": false,
+                "name": "Debian NAS User",
+                "commandline": "ssh rufus@192.168.1.10",
+				"fontFace": "Consolas",
+                "colorScheme": "Gruvbox Dark",
+            },
+			{
+			    "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+			    "hidden": false,
+				"fontFace": "Consolas",
+                "colorScheme": "Gruvbox Dark",
+			    "name": "Ubuntu",
+			    "source": "Windows.Terminal.Wsl"
+			},
+			{
+			    "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+			    "hidden": false,
+			    "name": "Ubuntu-20.04",
+			    "source": "Windows.Terminal.Wsl"
+			}
         ]
     },
 
@@ -79,7 +101,7 @@
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
     "schemes": [
         {
-            // Color Scheme: Dracula
+            "name": "Dracula",
             "background" : "#282A36",
             "black" : "#21222C",
             "blue" : "#BD93F9",
@@ -99,7 +121,29 @@
             "red" : "#FF5555",
             "white" : "#F8F8F2",
             "yellow" : "#F1FA8C"
-        }
+        },
+		{
+			"name": "Gruvbox Dark",
+			"background" : "#282828",
+			"black" : "#282828",
+			"blue" : "#458588",
+			"brightBlack" : "#928374",
+			"brightBlue" : "#83A598",
+			"brightCyan" : "#8EC07C",
+			"brightGreen" : "#B8BB26",
+			"brightPurple" : "#D3869B",
+			"brightRed" : "#FB4934",
+			"brightWhite" : "#EBDBB2",
+			"brightYellow" : "#FABD2F",
+			"cyan" : "#689D6A",
+			"foreground" : "#EBDBB2",
+			"green" : "#98971A",
+			"name" : "Gruvbox Dark",
+			"purple" : "#B16286",
+			"red" : "#CC241D",
+			"white" : "#A89984",
+			"yellow" : "#D79921"
+		}
     ],
 
     // Add custom actions and keybindings to this array.
@@ -123,6 +167,12 @@
         { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" },
         
         // Open New Tab
-        {"command":"newTab", "keys": "ctrl+t"}
+        {"command":"newTab", "keys": "ctrl+t"},
+
+        //unimatrix
+        { "command": { "action": "sendInput", "input": "unimatrix -c yellow -s 92 -f -l ks" }, "keys": "ctrl+shift+u" },
+
+        //Toggle always on top
+        { "command": "toggleAlwaysOnTop", "keys": "ctrl+alt+t" }
     ]
 }
